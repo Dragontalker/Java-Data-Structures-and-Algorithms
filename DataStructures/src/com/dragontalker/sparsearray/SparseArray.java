@@ -49,5 +49,9 @@ public class SparseArray {
                 }
             }
         }
+
+        // 输出稀疏数组的形式
+        System.out.println();
+        System.out.println("得到的稀疏数组为~~~~~");
     }
 }
