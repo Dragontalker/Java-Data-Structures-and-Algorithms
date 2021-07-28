@@ -29,5 +29,12 @@ public class SparseArray {
             }
         }
         System.out.println("sum=" + sum);
+
+        // 2. 创建对应的稀疏数组
+        int sparseArray[][] = new int[sum + 1][3];
+        // 给稀疏数组赋值
+        sparseArray[0][0] = 11;
+        sparseArray[0][1] = 11;
+        sparseArray[0][2] = sum;
     }
 }
