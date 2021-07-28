@@ -8,6 +8,7 @@ public class SparseArray {
         int chessArr1[][] = new int[11][11];
         chessArr1[1][2] = 1;
         chessArr1[2][3] = 2;
+        chessArr1[4][5] = 2;
 
         // 输出原始的二维数组
         System.out.println("原始的二维数组");
@@ -53,5 +54,10 @@ public class SparseArray {
         // 输出稀疏数组的形式
         System.out.println();
         System.out.println("得到的稀疏数组为~~~~~");
+
+        for (int i = 0; i < sparseArray.length; i++) {
+            System.out.printf("%d\t%d\t%d\t\n", sparseArray[i][0],
+                    sparseArray[i][1], sparseArray[i][2]);
+        }
     }
 }
