@@ -59,5 +59,11 @@ public class SparseArray {
             System.out.printf("%d\t%d\t%d\t\n", sparseArray[i][0],
                     sparseArray[i][1], sparseArray[i][2]);
         }
+
+        // 将稀疏数组 --> 恢复成 原始的二维数组
+        /*
+        1. 先读取稀疏数组的第一行, 根据第一行的数据, 创建原始的二维数组
+        2. 在读取稀疏数组后几行的数据, 并赋给 原始的二维数组 即可
+         */
     }
 }
