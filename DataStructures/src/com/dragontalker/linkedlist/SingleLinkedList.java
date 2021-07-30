@@ -20,4 +20,16 @@ class HeroNode {
         this.name = name;
         this.nickname = nickname;
     }
+
+    // 为了显示方便, 我们重写toString
+
+    @Override
+    public String toString() {
+        return "HeroNode{" +
+                "no=" + no +
+                ", name='" + name + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", next=" + next +
+                '}';
+    }
 }
