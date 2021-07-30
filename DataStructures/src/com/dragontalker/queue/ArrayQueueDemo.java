@@ -62,4 +62,17 @@ class ArrayQueue {
         return arr[front];
     }
 
+    // 显示队列的所有数据
+    public void showQueue() {
+        // 遍历
+        if (isEmpty()) {
+            System.out.println("队列空的, 没有数据~");
+            return;
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.printf("arr[%d]=%d\n", i, arr[i]);
+        }
+    }
+
 }
