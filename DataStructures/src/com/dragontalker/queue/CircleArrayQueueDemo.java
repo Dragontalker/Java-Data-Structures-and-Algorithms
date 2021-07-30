@@ -21,4 +21,9 @@ class CircleArray {
         this.maxSize = arrMaxSize;
         this.arr = new int[maxSize];
     }
+
+    // 判断队列是否满
+    public boolean isFull() {
+        return (rear + 1) % maxSize == front;
+    }
 }
