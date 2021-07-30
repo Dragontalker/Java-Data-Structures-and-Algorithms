@@ -40,8 +40,10 @@ class CircleArray {
             return;
         }
 
-        // 让rear后移
-        rear ++;
+        // 直接将数据加入
         arr[rear] = n;
+
+        // 将 rear 后移, 这里必须考虑取模
+        rear = (rear + 1) % maxSize;
     }
 }
