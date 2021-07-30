@@ -57,6 +57,8 @@ public class CircleArrayQueueDemo {
                     break;
             }
         }
+
+        System.out.println("程序退出~~");
     }
 }
 
