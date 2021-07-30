@@ -8,6 +8,9 @@ public class SingleLinkedListDemo {
 }
 
 // 定义SingleLinkedList
+class SingleLinkedList {
+
+}
 
 // 定义HeroNode, 每个HeroNode 对象就是一个节点
 class HeroNode {
