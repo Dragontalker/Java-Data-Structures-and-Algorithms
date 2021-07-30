@@ -26,4 +26,9 @@ class ArrayQueue {
         this.rear = -1;
     }
 
+    // 判断队列是否满
+    public boolean isFull() {
+        return rear == maxSize - 1;
+    }
+
 }
