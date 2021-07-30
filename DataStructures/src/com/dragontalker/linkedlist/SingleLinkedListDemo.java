@@ -21,13 +21,34 @@ class SingleLinkedList {
         // 因为head节点不能动, 因此我们需要一个辅助变量 temp
         HeroNode temp = head;
         // 遍历链表, 找到最后
-        while(true) {
+        while (true) {
             // 找到链表的最后
             if (temp.next == null) {
-                temp.next = heroNode;
                 break;
             }
             temp = temp.next;
+        }
+        // 当退出while循环的时候, temp就指向了链表的最后
+        // 将最后一个节点的next 指向 新的节点
+        temp.next = heroNode;
+    }
+
+    // 显示链表(遍历)
+    public void list() {
+        // 判断链表是否为空
+        if (head.next == null) {
+            System.out.println("链表为空");
+            return;
+        }
+        // 因为头节点不能动, 因为我们需要一个辅助变量来遍历
+        HeroNode temp = head.next;
+        while (true) {
+            // 判断是否链表最后
+            if (temp.next == null) {
+                break;
+            }
+            //输出节点的信息
+            System.out.println(temp);
         }
     }
 }
