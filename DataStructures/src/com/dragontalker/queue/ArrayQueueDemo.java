@@ -39,8 +39,23 @@ public class ArrayQueueDemo {
                         System.out.println(e.getMessage());
                     }
                     break;
+                case 'h': // 查看队列头的数据
+                    try {
+                        int res = queue.headQueuePeak();
+                        System.out.printf("队列头的数据是%d\n", res);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 'e': // 退出
+                    scanner.close();
+                    loop = false;
+                    break;
+                default:
+                    break;
             }
 
+            System.out.println("程序退出~~");
         }
     }
 }
