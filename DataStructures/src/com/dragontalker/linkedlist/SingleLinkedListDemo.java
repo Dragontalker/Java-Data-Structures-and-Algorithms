@@ -1,11 +1,13 @@
 package com.dragontalker.linkedlist;
 
-public class SingleLinkedList {
+public class SingleLinkedListDemo {
 
     public static void main(String[] args) {
 
     }
 }
+
+// 定义SingleLinkedList
 
 // 定义HeroNode, 每个HeroNode 对象就是一个节点
 class HeroNode {
