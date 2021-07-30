@@ -6,3 +6,11 @@ public class SingleLinkedList {
 
     }
 }
+
+// 定义HeroNode, 每个HeroNode 对象就是一个节点
+class HeroNode {
+    public int no;
+    public String name;
+    public String nickname;
+    public HeroNode next;
+}
