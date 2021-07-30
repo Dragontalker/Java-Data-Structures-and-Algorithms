@@ -8,7 +8,8 @@ public class CircleArrayQueueDemo {
         // 测试一把
         System.out.println("测试数组模拟环形队列的案例");
         // 创建与一个队列
-        ArrayQueue queue = new ArrayQueue(3);
+        // 说明: 设置4, 其最大的有效数据空间为3
+        CircleArray queue = new CircleArray(4);
         char key = ' '; // 接收用户输入
 
         Scanner scanner = new Scanner(System.in);
