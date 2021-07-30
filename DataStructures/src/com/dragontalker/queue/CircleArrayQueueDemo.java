@@ -20,7 +20,5 @@ class CircleArray {
     public CircleArray(int arrMaxSize) {
         this.maxSize = arrMaxSize;
         this.arr = new int[maxSize];
-        this.front = 0;
-        this.rear = 0;
     }
 }
