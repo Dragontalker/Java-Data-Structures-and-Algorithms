@@ -16,4 +16,11 @@ class CircleArray {
     // rear 的初始值 = 0
     private int rear; // 队列尾
     private int[] arr; // 该数组用于存放数据, 模拟队列
+
+    public CircleArray(int arrMaxSize) {
+        this.maxSize = arrMaxSize;
+        this.arr = new int[maxSize];
+        this.front = 0;
+        this.rear = 0;
+    }
 }
