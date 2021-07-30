@@ -31,6 +31,14 @@ public class ArrayQueueDemo {
                     int value = scanner.nextInt();
                     queue.addQueue(value);
                     break;
+                case 'g': // 取出数据
+                    try {
+                        int res = queue.getQueue();
+                        System.out.printf("取出的数据是%d\n", res);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
             }
 
         }
