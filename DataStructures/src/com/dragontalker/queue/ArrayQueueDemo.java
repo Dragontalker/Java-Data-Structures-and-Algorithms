@@ -17,14 +17,13 @@ class ArrayQueue {
     // 创建队列的构造器
     public ArrayQueue(int arrMaxSize) {
         this.maxSize = arrMaxSize;
-        arr = new int[maxSize];
+        this.arr = new int[maxSize];
 
         // 指向队列头部, 分析出front是指向队列头的前一个位置
         this.front = -1;
 
         // 指向队列尾, 指向队列尾的数据(即就是队列最后一个数据)
         this.rear = -1;
-
     }
 
 }
