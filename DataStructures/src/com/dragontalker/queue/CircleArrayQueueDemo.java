@@ -46,4 +46,21 @@ class CircleArray {
         // 将 rear 后移, 这里必须考虑取模
         rear = (rear + 1) % maxSize;
     }
+
+    // 获取队列的数据, 出队列
+    public int getQueue() {
+        // 判断队列是否空
+        if (isEmpty()) {
+            // 通过抛出异常来处理
+            throw new RuntimeException("队列空, 不能取数据~");
+        }
+
+        // 这里需要分析出front是指向队列的第一个元素
+        // 1. 先把front对应的值保存到一个临时变量
+        // 2. 将 front 后移, 考虑取模
+        // 3. 将临时保存的变量返回
+        int value = arr[front];
+        front = (front + 1) % maxSize;
+        return value;
+    }
 }
