@@ -78,4 +78,9 @@ class CircleArray {
             System.out.printf("arr[%d]=%d\n", i, arr[i]);
         }
     }
+
+    // 求出当前队列有效数据的个数
+    public int size() {
+        return (rear + maxSize - front) % maxSize;
+    }
 }
