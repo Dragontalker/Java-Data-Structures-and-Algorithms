@@ -75,4 +75,13 @@ class ArrayQueue {
         }
     }
 
+    // 显示队列的头部数据, 注意不是取出数据
+    public int headQueuePeak() {
+        // 判断
+        if (isEmpty()) {
+            throw new RuntimeException("队列空的, 没有数据~");
+        }
+        return arr[front + 1];
+    }
+
 }
