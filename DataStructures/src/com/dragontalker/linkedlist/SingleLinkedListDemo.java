@@ -47,8 +47,10 @@ class SingleLinkedList {
             if (temp.next == null) {
                 break;
             }
-            //输出节点的信息
+            // 输出节点的信息
             System.out.println(temp);
+            // 将next后移, 一定小心
+            temp = temp.next;
         }
     }
 }
