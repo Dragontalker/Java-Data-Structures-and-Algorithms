@@ -10,7 +10,14 @@ public class SingleLinkedListDemo {
         HeroNode hero3 = new HeroNode(3, "吴用", "智多星");
         HeroNode hero4 = new HeroNode(4, "林冲", "豹子头");
 
+        // 创建初始链表
+        SingleLinkedList singleLinkedList = new SingleLinkedList();
+        singleLinkedList.add(hero1);
+        singleLinkedList.add(hero2);
+        singleLinkedList.add(hero3);
+        singleLinkedList.add(hero4);
 
+        singleLinkedList.list();
     }
 }
 
@@ -49,11 +56,7 @@ class SingleLinkedList {
         }
         // 因为头节点不能动, 因为我们需要一个辅助变量来遍历
         HeroNode temp = head.next;
-        while (true) {
-            // 判断是否链表最后
-            if (temp.next == null) {
-                break;
-            }
+        while (temp != null) {
             // 输出节点的信息
             System.out.println(temp);
             // 将next后移, 一定小心
@@ -84,7 +87,6 @@ class HeroNode {
                 "no=" + no +
                 ", name='" + name + '\'' +
                 ", nickname='" + nickname + '\'' +
-                ", next=" + next +
                 '}';
     }
 }
