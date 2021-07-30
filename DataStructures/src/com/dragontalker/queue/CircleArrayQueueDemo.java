@@ -63,4 +63,19 @@ class CircleArray {
         front = (front + 1) % maxSize;
         return value;
     }
+
+    // 显示队列的所有数据
+    public void showQueue() {
+        // 遍历
+        if (isEmpty()) {
+            System.out.println("队列空的, 没有数据~");
+            return;
+        }
+
+        // 思路: 从front开始遍历, 遍历多少个元素
+        // 动脑筋
+        for (int i = front; i < front + 2; i++) {
+            System.out.printf("arr[%d]=%d\n", i, arr[i]);
+        }
+    }
 }
