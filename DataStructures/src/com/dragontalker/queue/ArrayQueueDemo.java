@@ -31,4 +31,9 @@ class ArrayQueue {
         return rear == maxSize - 1;
     }
 
+    // 判断是否队列为空
+    public boolean isEmpty() {
+        return rear == front;
+    }
+
 }
