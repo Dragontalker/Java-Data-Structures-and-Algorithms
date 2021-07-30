@@ -26,4 +26,22 @@ class CircleArray {
     public boolean isFull() {
         return (rear + 1) % maxSize == front;
     }
+
+    // 判断是否队列为空
+    public boolean isEmpty() {
+        return rear == front;
+    }
+
+    // 添加数据到队列
+    public void addQueue(int n) {
+        // 判断队列是否满
+        if (isFull()) {
+            System.out.println("队列满, 不能加入数据~");
+            return;
+        }
+
+        // 让rear后移
+        rear ++;
+        arr[rear] = n;
+    }
 }
