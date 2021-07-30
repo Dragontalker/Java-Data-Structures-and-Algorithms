@@ -1,9 +1,23 @@
 package com.dragontalker.queue;
 
+import java.util.Scanner;
+
 public class ArrayQueueDemo {
 
     public static void main(String[] args) {
+        // 测试一把
+        // 创建与一个队列
+        ArrayQueue arrayQueue = new ArrayQueue(3);
+        char key = ' '; // 接收用户输入
 
+        Scanner scanner = new Scanner(System.in);
+        boolean loop = true;
+
+        // 输入一个菜单
+        while (loop) {
+            System.out.println("s(show): 显示队列");
+            System.out.println("e(exit): 退出程序");
+        }
     }
 }
 
