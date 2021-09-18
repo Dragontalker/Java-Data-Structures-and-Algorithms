@@ -12,11 +12,19 @@ public class SingleLinkedListDemo {
 
         // 创建初始链表
         SingleLinkedList singleLinkedList = new SingleLinkedList();
-        singleLinkedList.add(hero1);
-        singleLinkedList.add(hero2);
-        singleLinkedList.add(hero3);
-        singleLinkedList.add(hero4);
+        //singleLinkedList.add(hero1);
+        //singleLinkedList.add(hero2);
+        //singleLinkedList.add(hero3);
+        //singleLinkedList.add(hero4);
 
+        //加入按标号的顺序
+        singleLinkedList.addByOrder(hero1);
+        singleLinkedList.addByOrder(hero4);
+        singleLinkedList.addByOrder(hero2);
+        singleLinkedList.addByOrder(hero3);
+        singleLinkedList.addByOrder(hero3);
+
+        // 显示一把
         singleLinkedList.list();
     }
 }
