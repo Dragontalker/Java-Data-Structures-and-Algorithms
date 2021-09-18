@@ -34,6 +34,14 @@ public class SingleLinkedListDemo {
         // 修改后的链表情况
         System.out.println("修改后的链表情况~~");
         singleLinkedList.list();
+
+        // 删除一个节点
+        singleLinkedList.del(1);
+        singleLinkedList.del(4);
+        singleLinkedList.del(2);
+        singleLinkedList.del(3);
+        System.out.println("删除后的链表情况~~");
+        singleLinkedList.list();
     }
 }
 
