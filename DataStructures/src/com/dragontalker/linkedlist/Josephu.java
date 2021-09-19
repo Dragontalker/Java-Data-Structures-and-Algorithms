@@ -3,7 +3,10 @@ package com.dragontalker.linkedlist;
 public class Josephu {
 
     public static void main(String[] args) {
-
+        // 测试一把看看构建环形链表, 和遍历是否ok
+        CircleSingleLinkedList circleSingleLinkedList = new CircleSingleLinkedList();
+        circleSingleLinkedList.addBoy(5);
+        circleSingleLinkedList.showBoy();
     }
 }
 
