@@ -6,7 +6,7 @@ import java.util.Stack;
 public class TestStack {
 
     public static void main(String[] args) {
-        Stack<String> stack = new Stack<String>();
+        Stack<String> stack = new Stack<>();
         // 入栈
         stack.add("Jack");
         stack.add("Tom");
