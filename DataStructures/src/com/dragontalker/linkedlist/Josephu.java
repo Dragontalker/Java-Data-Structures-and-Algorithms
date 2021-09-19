@@ -5,8 +5,11 @@ public class Josephu {
     public static void main(String[] args) {
         // 测试一把看看构建环形链表, 和遍历是否ok
         CircleSingleLinkedList circleSingleLinkedList = new CircleSingleLinkedList();
-        circleSingleLinkedList.addBoy(25);
+        circleSingleLinkedList.addBoy(125);
         circleSingleLinkedList.showBoy();
+
+        // 测试一把小孩出圈是否正确
+        circleSingleLinkedList.countBoy(10, 20, 125);
     }
 }
 
@@ -92,7 +95,7 @@ class CircleSingleLinkedList {
                 helper = helper.getNext();
             }
             // 这是first指向的节点, 就是要出圈的小孩节点
-            System.out.printf("小孩%d出圈", first.getNo());
+            System.out.printf("小孩%d出圈\n", first.getNo());
             // 这时将first指向的小孩节点出圈
             first = first.getNext();
             helper.setNext(first);
