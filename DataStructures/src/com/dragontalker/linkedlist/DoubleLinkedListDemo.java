@@ -25,6 +25,12 @@ public class DoubleLinkedListDemo {
 
         System.out.println("修改后的链表情况~~");
         doubleLinkedList.list();
+
+        // 删除的测试
+        doubleLinkedList.del(3);
+
+        System.out.println("删除后的链表情况~~");
+        doubleLinkedList.list();
     }
 }
 
