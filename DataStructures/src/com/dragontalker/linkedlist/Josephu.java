@@ -35,6 +35,24 @@ class CircleSingleLinkedList {
             }
         }
     }
+
+    // 遍历当前的环形链表
+    public void showBoy() {
+        // 判断是否为空
+        if(first == null) {
+            System.out.println("没有任何小孩~");
+            return;
+        }
+        // 因为first不能动, 因为我们仍然使用一个辅助指针完成遍历
+        Boy curBoy = first;
+        while(true) {
+            System.out.printf("小孩的编号 %d \n", curBoy.getNo());
+            if(curBoy.getNext() == first) {
+                break;
+            }
+            curBoy = curBoy.getNext();
+        }
+    }
 }
 
 // 创建一个Boy类, 表示一个节点
