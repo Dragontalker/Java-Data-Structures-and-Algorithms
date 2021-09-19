@@ -50,7 +50,7 @@ public class ArrayStackDemo {
 
 // 定义一个栈结构
 class ArrayStack {
-    private int maxSize; // 栈的大小
+    private final int maxSize; // 栈的大小
     private int[] stack; // 数组, 模拟栈, 数据就放在该数组中
     private int top; // top表示栈顶, 初始化为-1
 
