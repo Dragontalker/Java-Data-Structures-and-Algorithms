@@ -43,6 +43,10 @@ public class SingleLinkedListDemo {
 
         // 测试一下 求单链表中的有效节点的个数
         System.out.println("有效的节点个数 = " + getLength(singleLinkedList.getHead()));
+
+        // 测试一下 看看是否得到了倒数第K个节点
+        HeroNode res = findLastIndexNode(singleLinkedList.getHead(), 3);
+        System.out.println("res = " + res);
     }
 
     // 查找单链表中的倒数第k个节点 [新浪面试题]
