@@ -18,6 +18,13 @@ public class DoubleLinkedListDemo {
         doubleLinkedList.add(hero4);
 
         doubleLinkedList.list();
+
+        // 修改的测试
+        HeroNode2 newHeroNode = new HeroNode2(4, "公孙胜", "入云龙");
+        doubleLinkedList.update(newHeroNode);
+
+        System.out.println("修改后的链表情况~~");
+        doubleLinkedList.list();
     }
 }
 
