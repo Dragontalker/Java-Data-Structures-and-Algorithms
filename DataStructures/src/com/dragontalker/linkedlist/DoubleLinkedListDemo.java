@@ -87,6 +87,39 @@ class DoubleLinkedList {
             System.out.printf("没有找到编号 %d 的节点, 不能修改\n", newHeroNode.no);
         }
     }
+
+    // 从双向链表中删除一个节点
+    public void del(int no) {
+
+        // 判断当前链表是否为空
+        if(head.next == null) { // 空链表
+            System.out.println("链表为空, 无法删除");
+            return;
+        }
+
+        HeroNode2 temp = head.next;
+        boolean flag = false; // 标志是否找到待删除的节点
+        while(true) {
+            if(temp == null) { // 已经到链表的最后
+                break;
+            }
+            if(temp.no == no) {
+                flag = true;
+                break;
+            }
+            temp = temp.next; // temp后移, 遍历
+        }
+        // 判断flag
+        if(flag) { // 找到
+            // 可以删除
+            temp.pre.next = temp.next;
+            if(temp.next != null) {
+                temp.next.pre = temp.pre;
+            }
+        } else {
+            System.out.printf("要删除的 %d 节点不存在\n", no);
+        }
+    }
 }
 
 // 定义 HeroNode2 , 每个HeroNode 对象就是一个节点
