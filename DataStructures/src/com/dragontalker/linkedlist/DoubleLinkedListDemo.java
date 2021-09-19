@@ -35,6 +35,26 @@ class DoubleLinkedList {
             temp = temp.next;
         }
     }
+
+    // 添加一个节点到双向链表的最后
+    public void add(HeroNode2 heroNode) {
+
+        // 因为head节点不能动, 因此我们需要一个辅助变量 temp
+        HeroNode2 temp = head;
+        // 遍历链表, 找到最后
+        while (true) {
+            // 找到链表的最后
+            if (temp.next == null) {
+                break;
+            }
+            temp = temp.next;
+        }
+        // 当退出while循环的时候, temp就指向了链表的最后
+        // 将最后一个节点的next 指向 新的节点
+        // 形成一个双向链表
+        temp.next = heroNode;
+        heroNode.pre = temp;
+    }
 }
 
 // 定义 HeroNode2 , 每个HeroNode 对象就是一个节点
