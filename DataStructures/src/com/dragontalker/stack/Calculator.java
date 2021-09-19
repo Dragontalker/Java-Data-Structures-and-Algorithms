@@ -3,7 +3,59 @@ package com.dragontalker.stack;
 public class Calculator {
 
     public static void main(String[] args) {
-
+        // 根据前面老师的思路, 完成表达式的运算
+        String expression = "3+2*6-2";
+        // 创建两个栈, 数栈, 符号栈
+        ArrayStack2 numberStack = new ArrayStack2(10);
+        ArrayStack2 operatorStack = new ArrayStack2(10);
+        // 定义需要的相关变量
+        int index = 0; // 用于扫描
+        int num1;
+        int num2;
+        int operator;
+        int res;
+        char ch; // 将每次扫描得到的char保存到ch中
+        // 开始while循环扫描expression
+        do {
+            // 依次得到expression的每一个字符
+            ch = expression.substring(index, index + 1).charAt(0);
+            // 判断ch是什么, 然后做相应的处理
+            if (operatorStack.isOperator(ch)) { // 如果是运算符
+                // 判断当前的符号栈是否为空
+                if (operatorStack.isEmpty()) {
+                    operatorStack.push(ch);
+                } else {
+                    if (operatorStack.priority(ch) <= operatorStack.priority(operatorStack.peek())) {
+                        num1 = numberStack.pop();
+                        num2 = numberStack.pop();
+                        operator = operatorStack.pop();
+                        res = numberStack.cal(num1, num2, operator);
+                        // 把运算的结果入数栈
+                        numberStack.push(res);
+                        // 然后将当前的操作符入符号栈
+                        operatorStack.push(ch);
+                    } else {
+                        // 如果当前的操作符的优先级大于栈中的操作符, 就直接入符号栈
+                        operatorStack.push(ch);
+                    }
+                }
+            } else { // 如果是数, 则直接入数栈
+                numberStack.push(ch - 48);
+            }
+            // 让index+1, 并判断是否扫描到expression最后
+            index++;
+        } while (index < expression.length());
+        while (!operatorStack.isEmpty()) {
+            // 如果符号栈为空, 则计算到最后的结果, 数栈中只有一个数字[结果]
+            num1 = numberStack.pop();
+            num2 = numberStack.pop();
+            operator = operatorStack.pop();
+            res = numberStack.cal(num1, num2, operator);
+            numberStack.push(res);
+        }
+        // 将数栈的最后数pop出, 就是最后的结果
+        int result = numberStack.pop();
+        System.out.printf("表达式 %s = %d", expression, result);
     }
 }
 
@@ -19,6 +71,11 @@ class ArrayStack2 {
         this.maxSize = maxSize;
         this.stack = new int[this.maxSize];
         this.top = -1;
+    }
+
+    // 增加一个方法, 可以返回当前栈顶的值, 但不是真正的pop
+    public int peek() {
+        return stack[top];
     }
 
     // 栈满
@@ -67,7 +124,7 @@ class ArrayStack2 {
 
     // 返回运算符的优先级, 优先级是程序员来确定, 优先级使用数字表示
     // 数字越大, 则优先级越高
-    public int priority(char operator) {
+    public int priority(int operator) {
         if(operator == '*' || operator == '/') {
             return 1;
         } else if (operator == '-' || operator == '+') {
@@ -83,7 +140,7 @@ class ArrayStack2 {
     }
 
     // 计算方法
-    public int cal(int num1, int num2, char operator) {
+    public int cal(int num1, int num2, int operator) {
         int res;
         switch(operator) {
             case '+':
