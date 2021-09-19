@@ -55,6 +55,38 @@ class DoubleLinkedList {
         temp.next = heroNode;
         heroNode.pre = temp;
     }
+
+    // 修改一个节点的内容, 可以看到双向链表的节点内容修改和单向链表一样
+    // 只是节点的类型改成了 HeroNode2
+    public void update(HeroNode2 newHeroNode) {
+        // 判断是否为空
+        if(head.next == null) {
+            System.out.println("链表为空~");
+            return;
+        }
+        // 找到需要修改的节点, 根据no编号
+        // 定义一个辅助变量
+        HeroNode2 temp = head.next;
+        boolean flag = false; // 表示是否找到该节点
+        while(true) {
+            if(temp == null) {
+                break; // 已经遍历完链表
+            }
+            if(temp.no == newHeroNode.no) {
+                // 找到
+                flag = true;
+                break;
+            }
+            temp = temp.next;
+        }
+        // 根据flag判断是否找到要修改的节点
+        if(flag) {
+            temp.name = newHeroNode.name;
+            temp.nickname = newHeroNode.nickname;
+        } else { // 没有找到
+            System.out.printf("没有找到编号 %d 的节点, 不能修改\n", newHeroNode.no);
+        }
+    }
 }
 
 // 定义 HeroNode2 , 每个HeroNode 对象就是一个节点
