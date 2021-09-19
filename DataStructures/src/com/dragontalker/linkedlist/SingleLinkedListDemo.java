@@ -1,5 +1,7 @@
 package com.dragontalker.linkedlist;
 
+import java.util.Stack;
+
 public class SingleLinkedListDemo {
 
     public static void main(String[] args) {
@@ -27,9 +29,12 @@ public class SingleLinkedListDemo {
         System.out.println("原来链表的情况~~");
         singleLinkedList.list();
 
-        System.out.println("反转单链表~~");
-        reverseList(singleLinkedList.getHead());
-        singleLinkedList.list();
+        //System.out.println("反转单链表~~");
+        //reverseList(singleLinkedList.getHead());
+        //singleLinkedList.list();
+
+        System.out.println("测试逆序打印单链表, 没有改变链表的结构");
+        reversePrint(singleLinkedList.getHead());
 
         // 测试修改节点的代码
         HeroNode newHeroNode = new HeroNode(2, "小卢", "玉麒麟~~");
@@ -51,6 +56,27 @@ public class SingleLinkedListDemo {
         // 测试一下 看看是否得到了倒数第K个节点
         HeroNode res = findLastIndexNode(singleLinkedList.getHead(), 3);
         System.out.println("res = " + res);
+    }
+
+    // 方式2:
+    // 可以利用栈这个数据结构, 将各个节点压入栈中
+    // 然后利用栈的先进后出的特点, 就实现了逆序打印的效果
+    public static void reversePrint(HeroNode head) {
+        if(head.next == null) {
+            return; // 空链表, 不能打印
+        }
+        // 创建一个栈, 将各个节点压入栈
+        Stack<HeroNode> stack = new Stack<>();
+        HeroNode cur = head.next;
+        // 将链表的所有节点压入栈中
+        while(cur != null) {
+            stack.push(cur);
+            cur = cur.next; // cur后移, 这样就可以压入下一个节点
+        }
+        // 将栈中的节点进行打印, pop出栈
+        while(stack.size() > 0) {
+            System.out.println(stack.pop()); // stack特点是先进后出
+        }
     }
 
     // 将单链表反转
