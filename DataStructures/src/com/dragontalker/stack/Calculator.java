@@ -64,4 +64,44 @@ class ArrayStack2 {
             System.out.printf("stack[%d]=%d\n", i, stack[i]);
         }
     }
+
+    // 返回运算符的优先级, 优先级是程序员来确定, 优先级使用数字表示
+    // 数字越大, 则优先级越高
+    public int priority(char operator) {
+        if(operator == '*' || operator == '/') {
+            return 1;
+        } else if (operator == '-' || operator == '+') {
+            return 0;
+        } else {
+            return -1; // 假定目前的表达式只有+, -, *, /
+        }
+    }
+
+    // 判断是不是一个运算符
+    public boolean isOperator(char val) {
+        return val == '+' || val == '-' || val == '*' || val == '/';
+    }
+
+    // 计算方法
+    public int cal(int num1, int num2, char operator) {
+        int res;
+        switch(operator) {
+            case '+':
+                res = num1 + num2;
+                break;
+            case '-':
+                res = num2 - num1; // 注意顺序
+                break;
+            case '*':
+                res = num1 * num2;
+                break;
+            case '/':
+                res = num2 / num1;
+                break;
+            default:
+                res = 0;
+                break;
+        }
+        return res;
+    }
 }
