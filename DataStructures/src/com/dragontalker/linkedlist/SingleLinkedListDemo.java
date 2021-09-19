@@ -12,19 +12,23 @@ public class SingleLinkedListDemo {
 
         // 创建初始链表
         SingleLinkedList singleLinkedList = new SingleLinkedList();
-        //singleLinkedList.add(hero1);
-        //singleLinkedList.add(hero2);
-        //singleLinkedList.add(hero3);
-        //singleLinkedList.add(hero4);
+        singleLinkedList.add(hero1);
+        singleLinkedList.add(hero4);
+        singleLinkedList.add(hero2);
+        singleLinkedList.add(hero3);
 
         //加入按标号的顺序
-        singleLinkedList.addByOrder(hero1);
-        singleLinkedList.addByOrder(hero4);
-        singleLinkedList.addByOrder(hero2);
-        singleLinkedList.addByOrder(hero3);
-        singleLinkedList.addByOrder(hero3);
+        //singleLinkedList.addByOrder(hero1);
+        //singleLinkedList.addByOrder(hero4);
+        //singleLinkedList.addByOrder(hero2);
+        //singleLinkedList.addByOrder(hero3);
 
-        // 显示一把
+        // 测试一下单链表的反转功能
+        System.out.println("原来链表的情况~~");
+        singleLinkedList.list();
+
+        System.out.println("反转单链表~~");
+        reverseList(singleLinkedList.getHead());
         singleLinkedList.list();
 
         // 测试修改节点的代码
@@ -66,6 +70,7 @@ public class SingleLinkedListDemo {
         while(cur != null) {
             next = cur.next; // 先暂时保存当前节点的下一个节点, 因为后面需要使用
             cur.next = reverseHead.next; // 将cur的下一个节点指向新的链表的最前端
+            reverseHead.next = cur; // 将 cur 连接到新的链表上
             cur = next; // 让cur后移
         }
         // 将head.next 指向 reverseHead.next , 实现单链表的反装
