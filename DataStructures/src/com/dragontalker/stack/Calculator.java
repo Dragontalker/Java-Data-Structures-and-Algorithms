@@ -4,7 +4,7 @@ public class Calculator {
 
     public static void main(String[] args) {
         // 根据前面老师的思路, 完成表达式的运算
-        String expression = "3+2*6-2";
+        String expression = "70+20*6-4";
         // 创建两个栈, 数栈, 符号栈
         ArrayStack2 numberStack = new ArrayStack2(10);
         ArrayStack2 operatorStack = new ArrayStack2(10);
@@ -15,7 +15,7 @@ public class Calculator {
         int operator;
         int res;
         char ch; // 将每次扫描得到的char保存到ch中
-        String keepNum; // 用于拼接多位数
+        String keepNum = ""; // 用于拼接多位数
         // 开始while循环扫描expression
         do {
             // 依次得到expression的每一个字符
@@ -46,6 +46,24 @@ public class Calculator {
                 // 1. 当处理多位数, 不能发现是一个数就立刻入栈, 因为他可能是多位数
                 // 2. 在处理数时, 需要向expression的表达式的index后再看一位, 如果是数, 就立刻扫描
                 // 3. 因此我们需要定义一个变量, 用于拼接
+
+                // 处理多位数
+                keepNum += ch;
+
+                // 如果ch已经是expression的最后一位, 就直接入栈
+                if(index == expression.length() - 1) {
+                    numberStack.push(Integer.parseInt(keepNum));
+                } else {
+                    // 判断下一个字符是不是数字, 如果是数字, 就继续扫描, 如果是运算符, 则入栈
+                    if(operatorStack.isOperator((expression.substring(index+1, index+2).charAt(0)))) {
+                        // 如果后一位是运算符, 则入栈
+                        numberStack.push(Integer.parseInt(keepNum));
+                        // 重要的!!!!, keepNum清空
+                        keepNum = "";
+                    }
+                }
+
+
             }
             // 让index+1, 并判断是否扫描到expression最后
             index++;
