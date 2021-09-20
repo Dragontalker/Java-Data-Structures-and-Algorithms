@@ -2,6 +2,7 @@ package com.dragontalker.stack;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class PolandNotation {
 
@@ -27,5 +28,44 @@ public class PolandNotation {
             list.add(ele);
         }
         return list;
+    }
+
+    // 完成对逆波兰表达式的运算
+    public static int calculate(List<String> ls) {
+        // 创建一个栈, 只需要一个栈即可
+        Stack<String> stack = new Stack<String>();
+        // 遍历ls
+        for(String item : ls) {
+            // 这里使用正则表达式来取出数
+            if(item.matches("\\d+")) { // 匹配的是多位数
+                // 入栈
+                stack.push(item);
+            } else {
+                // pop出两个数, 并运算, 再入栈
+                int num2 = Integer.parseInt(stack.pop());
+                int num1 = Integer.parseInt(stack.pop());
+                int res = 0;
+                switch (item) {
+                    case "+":
+                        res = num1 + num2;
+                        break;
+                    case "-":
+                        res = num1 - num2;
+                        break;
+                    case "x":
+                        res = num1 * num2;
+                        break;
+                    case "/":
+                        res = num1 / num2;
+                        break;
+                    default:
+                        break;
+                }
+                // 把res入栈
+                stack.push(res + "");
+            }
+        }
+        // 最后留在stack中的数据是运算结果
+        return Integer.parseInt(stack.pop());
     }
 }
