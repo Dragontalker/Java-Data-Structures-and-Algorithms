@@ -15,6 +15,7 @@ public class Calculator {
         int operator;
         int res;
         char ch; // 将每次扫描得到的char保存到ch中
+        String keepNum; // 用于拼接多位数
         // 开始while循环扫描expression
         do {
             // 依次得到expression的每一个字符
@@ -40,7 +41,11 @@ public class Calculator {
                     }
                 }
             } else { // 如果是数, 则直接入数栈
-                numberStack.push(ch - 48);
+                // numberStack.push(ch - 48);
+                // 分析思路
+                // 1. 当处理多位数, 不能发现是一个数就立刻入栈, 因为他可能是多位数
+                // 2. 在处理数时, 需要向expression的表达式的index后再看一位, 如果是数, 就立刻扫描
+                // 3. 因此我们需要定义一个变量, 用于拼接
             }
             // 让index+1, 并判断是否扫描到expression最后
             index++;
