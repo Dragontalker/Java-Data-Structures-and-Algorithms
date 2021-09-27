@@ -11,7 +11,7 @@ public class PolandNotation {
         // (30+4)x5-6 => 30 4 + 5 x 6 - = 164
         // 4*5-8+60+8/2 => 4 5 x 8 - 60 + 8 2 / + = 76
         // 为了说明方便, 逆波兰表达式的数字和符号使用空格隔开
-        String suffixExpression = "30 4 + 5 x 6 -";
+        String suffixExpression = "4 5 x 8 - 60 + 8 2 / +";
         System.out.println("逆波兰表达式=" + suffixExpression);
         // 思路
         // 1. 先将 "3 4 + 5 x 6 -" => 放到ArrayList中
