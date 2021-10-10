@@ -9,7 +9,7 @@ public class PolandNotation {
     public static void main(String[] args) {
         // 先定义一个逆波兰表达式
         // (30+4)x5-6 => 30 4 + 5 x 6 - = 164
-        // 4*5-8+60+8/2 => 4 5 x 8 - 60 + 8 2 / + = 76
+        // 4*5-8+60+8/2 => 30 4 + 5 x 6 - = 76
         // 为了说明方便, 逆波兰表达式的数字和符号使用空格隔开
         String suffixExpression = "4 5 x 8 - 60 + 8 2 / +";
         System.out.println("逆波兰表达式=" + suffixExpression);
