@@ -1,6 +1,7 @@
 package com.dragontalker.stack;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
@@ -29,9 +30,7 @@ public class PolandNotation {
         // 将 suffixExpression 分割
         String[] split = suffixExpression.split(" ");
         List<String> list = new ArrayList<>();
-        for(String ele : split) {
-            list.add(ele);
-        }
+        Collections.addAll(list, split);
         return list;
     }
 
